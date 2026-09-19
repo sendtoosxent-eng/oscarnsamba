@@ -9,20 +9,37 @@ import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
 import { ExperienceInterface } from "@/config/experience";
 
-// Helper function to extract year from date
-const getYearFromDate = (date: Date): string => {
-  return new Date(date).getFullYear().toString();
+// Helper function to extract year from date (defensive against missing/invalid dates)
+const getYearFromDate = (date?: Date | string): string => {
+  if (!date) return "Present";
+  const parsed = new Date(date);
+  if (isNaN(parsed.getTime())) return "Present";
+  return parsed.getFullYear().toString();
 };
 
 // Helper function to get duration text
 const getDurationText = (
-  startDate: Date,
-  endDate: Date | "Present"
+  startDate?: Date | string,
+  endDate?: Date | "Present"
 ): string => {
   const startYear = getYearFromDate(startDate);
   const endYear =
-    typeof endDate === "string" ? "Present" : getYearFromDate(endDate);
+    endDate === "Present" || !endDate ? "Present" : getYearFromDate(endDate);
   return `${startYear} - ${endYear}`;
+};
+
+// Helper to safely get a comparable timestamp for sorting
+const getComparableTime = (experience: ExperienceInterface): number => {
+  if (experience.endDate === "Present") return Date.now();
+  if (experience.endDate) {
+    const parsed = new Date(experience.endDate);
+    if (!isNaN(parsed.getTime())) return parsed.getTime();
+  }
+  if (experience.startDate) {
+    const parsed = new Date(experience.startDate);
+    if (!isNaN(parsed.getTime())) return parsed.getTime();
+  }
+  return 0;
 };
 
 interface TimelineProps {
@@ -32,9 +49,7 @@ interface TimelineProps {
 const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
   // Sort experiences by date (most recent first)
   const sortedExperiences = [...experiences].sort((a, b) => {
-    const dateA = a.endDate === "Present" ? new Date() : a.endDate;
-    const dateB = b.endDate === "Present" ? new Date() : b.endDate;
-    return dateB.getTime() - dateA.getTime();
+    return getComparableTime(b) - getComparableTime(a);
   });
 
   return (

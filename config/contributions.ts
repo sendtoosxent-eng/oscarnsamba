@@ -1,47 +1,9 @@
-export interface contributionsInterface {
-  repo: string;
-  contibutionDescription: string;
-  repoOwner: string;
-  link: string;
-}
+export interface contributionsInterface { repo: string; contibutionDescription: string; repoOwner: string; link: string }
 
 export const contributionsUnsorted: contributionsInterface[] = [
-  {
-    repo: "minimal-next-portfolio",
-    contibutionDescription:
-      "Open-source Next.js portfolio template. Trusted and forked by developers worldwide (130+ GitHub stars).",
-    repoOwner: "namanbarkiya",
-    link: "https://github.com/namanbarkiya/minimal-next-portfolio",
-  },
-  {
-    repo: "niya-saas-template",
-    contibutionDescription:
-      "Modern Next.js SaaS template. Production-ready starter for devs and AI startups (30+ GitHub stars).",
-    repoOwner: "namanbarkiya",
-    link: "https://github.com/namanbarkiya/niya-saas-template",
-  },
-  {
-    repo: "autogen",
-    contibutionDescription:
-      "Improved the gallery component to showcase the community work.",
-    repoOwner: "Microsoft",
-    link: "https://github.com/microsoft/autogen/pull/1445",
-  },
-  {
-    repo: "creativecommons",
-    contibutionDescription:
-      "Closed Issue: Fixed navbar issue on the main website of creative common.",
-    repoOwner: "Creative Commons",
-    link: "https://github.com/creativecommons/creativecommons.github.io-source/pull/738",
-  },
-  {
-    repo: "creativecommons",
-    contibutionDescription:
-      "Added section for 'Other Opportunities' on main page.",
-    repoOwner: "Creative Commons",
-    link: "https://github.com/creativecommons/creativecommons.github.io-source/pull/719",
-  },
+  { repo: "Edlink", contibutionDescription: "Continued development, deployment, data migration, troubleshooting, training, and improvement of a school-management product.", repoOwner: "Product development", link: "/projects/edlink" },
+  { repo: "Business systems", contibutionDescription: "Backend, database, reporting, and workflow improvements for financial and operational software.", repoOwner: "Backend engineering", link: "/projects/financial-business-systems" },
+  { repo: "Ripple", contibutionDescription: "Exploring modern messaging architecture with Next.js, Laravel, PostgreSQL, and real-time concepts.", repoOwner: "Full-stack development", link: "/projects/ripple" },
 ];
 
-export const featuredContributions: contributionsInterface[] =
-  contributionsUnsorted.slice(0, 3);
+export const featuredContributions = contributionsUnsorted.slice(0, 3);

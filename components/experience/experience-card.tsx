@@ -15,12 +15,13 @@ const getYearFromDate = (date: Date): string => {
 
 // Helper function to get duration text
 const getDurationText = (
-  startDate: Date,
-  endDate: Date | "Present"
+  startDate?: Date,
+  endDate?: Date | "Present"
 ): string => {
+  if (!startDate) return "Professional experience";
   const startYear = getYearFromDate(startDate);
   const endYear =
-    typeof endDate === "string" ? "Present" : getYearFromDate(endDate);
+    !endDate || typeof endDate === "string" ? "Present" : getYearFromDate(endDate);
   return `${startYear} - ${endYear}`;
 };
 

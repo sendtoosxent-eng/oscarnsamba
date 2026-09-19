@@ -21,12 +21,11 @@ import { siteConfig } from "@/config/site";
 import { featuredSkills } from "@/config/skills";
 import { getFeaturedBlogs } from "@/lib/blogs";
 import { cn } from "@/lib/utils";
-import profileImg from "@/public/profile-img.jpg";
+import oscar from "@/public/oscar.jpeg";
 
 export const metadata: Metadata = {
   title: `${pagesConfig.home.metadata.title}`,
-  description:
-    "Naman Barkiya - Applied AI Engineer working at the intersection of AI, data, and scalable software systems. Explore my projects, experience, and contributions.",
+  description: siteConfig.description,
   alternates: {
     canonical: siteConfig.url,
   },
@@ -41,15 +40,15 @@ export default function IndexPage() {
     name: siteConfig.authorName,
     url: siteConfig.url,
     image: siteConfig.ogImage,
-    jobTitle: "Applied AI Engineer",
-    sameAs: [siteConfig.links.github, siteConfig.links.twitter],
+    jobTitle: "Full-Stack Software Developer",
+    sameAs: [siteConfig.links.github, siteConfig.links.linkedin].filter(Boolean),
   };
 
   // Structured data for website as a software application (template)
   const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Next.js Portfolio Template",
+    name: "Oscar Nsamba Portfolio",
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web",
     offers: {
@@ -80,12 +79,12 @@ export default function IndexPage() {
       <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
           <Image
-            src={profileImg}
+            src={oscar}
             height={100}
             width={100}
             sizes="100vw"
             className="bg-primary rounded-full mb-0 h-auto md:mb-2 w-[60%] max-w-[16rem] border-8 border-primary"
-            alt="Naman Barkiya - Applied AI Engineer Portfolio"
+            alt="Oscar Nsamba - Full-Stack Software Developer"
             priority
           />
           <AnimatedText
@@ -93,19 +92,19 @@ export default function IndexPage() {
             delay={0.2}
             className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Naman Barkiya
+            Oscar Nsamba
           </AnimatedText>
           <AnimatedText
             as="h3"
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            Applied AI Engineer
+            Full-Stack Software Developer
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Software engineer working at the intersection of AI, data, and
-              scalable software systems.
+              I turn real-world operational problems into reliable web, mobile,
+              and business software—from first requirement to production support.
             </p>
           </div>
 
@@ -130,7 +129,7 @@ export default function IndexPage() {
                     size: "lg",
                   })
                 )}
-                aria-label="Contact Naman Barkiya"
+                aria-label="Contact Oscar Nsamba"
               >
                 <Icons.contact className="w-4 h-4 mr-2" /> Contact
               </Link>

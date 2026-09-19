@@ -5,8 +5,8 @@ export interface ExperienceInterface {
   position: string;
   company: string;
   location: string;
-  startDate: Date;
-  endDate: Date | "Present";
+  startDate?: Date;
+  endDate?: Date | "Present";
   description: string[];
   achievements: string[];
   skills: ValidSkills[];
@@ -16,77 +16,38 @@ export interface ExperienceInterface {
 
 export const experiences: ExperienceInterface[] = [
   {
-    id: "ubs",
-    position: "Software Development Engineer",
-    company: "UBS",
-    location: "Mumbai, India",
-    startDate: new Date("2024-08-01"),
+    id: "lumpsum-technologies",
+    position: "Backend Developer",
+    company: "Lumpsum Technologies",
+    location: "Uganda",
+    startDate: new Date("2023-01-01"),
     endDate: "Present",
     description: [
-      "Shipped production features within the first month for a trader-facing P&L dashboard used by global stakeholders.",
-      "Led the migration from Kendo UI to UBS’s internal design system to reduce UI inconsistencies and improve render performance.",
-      "Designed and automated a daily FX rate ingestion pipeline using Databricks (Python, Spark SQL) and Java services.",
+      "Developed and improved backend systems shaped around real organizational and business requirements.",
+      "Worked with application logic, databases, APIs, troubleshooting, and the continued improvement of business software.",
     ],
     achievements: [
-      "Shipped production features within the first month for a trader-facing P&L dashboard used by global stakeholders.",
-      "Led migration from Kendo UI to UBS’s internal design system, reducing UI inconsistencies and improving render performance across core dashboards.",
-      "Designed and automated a daily FX rate ingestion pipeline using Databricks (Python, Spark SQL) and Java services, eliminating manual rate updates.",
-      "Won UBS AI Venture Challenge by building data transformation and anomaly detection pipelines on trading datasets.",
-      "Led a 12-member team in an internal hackathon to build an AI-powered tool that generates GitLab tickets, test cases, and requirement summaries.",
+      "Translated operational requirements into maintainable backend features and database workflows.",
+      "Diagnosed issues in existing systems and implemented practical improvements.",
+      "Contributed across development, debugging, deployment, and application support.",
     ],
-    skills: ["Typescript", "React", "Databricks", "Java", "Python"],
-    companyUrl: "https://www.ubs.com",
-    logo: "/experience/keys-logo.png",
+    skills: ["Laravel", "PHP", "REST APIs", "MySQL", "SQL"],
   },
   {
-    id: "muze-ai",
-    position: "Founding Engineer",
-    company: "Muze AI",
-    location: "Bengaluru, India",
-    startDate: new Date("2023-10-01"),
-    endDate: new Date("2024-03-01"),
+    id: "frontend-digital-design",
+    position: "Frontend Developer & Digital Designer",
+    company: "Previous Experience",
+    location: "Uganda",
+    startDate: new Date("2021-01-01"),
+    endDate: new Date("2022-12-31"),
     description: [
-      "Improved LLM function-calling accuracy through structured prompt design and response validation.",
-      "Developed APIs and integrated Slack, Google Workspace, and HubSpot automations via FastAPI.",
-      "Migrated ML inference from Replicate to AWS SageMaker to reduce cold-start latency.",
+      "Built user-facing web experiences and developed a foundation in graphics and digital product design.",
+      "This background helps bridge engineering decisions with usability, clarity, and visual communication.",
     ],
     achievements: [
-      "Improved LLM function-calling accuracy by ~40% through structured prompt design and response validation.",
-      "Developed APIs and integrated Slack, Google Workspace, and HubSpot automations via FastAPI.",
-      "Migrated ML inference from Replicate to AWS SageMaker, reducing cold-start latency by ~30%.",
-      "Created a Next.js dashboard for user analytics and a demo video explaining the implementation.",
+      "Developed responsive interfaces for different screen sizes and user contexts.",
+      "Combined visual-design awareness with practical frontend implementation.",
     ],
-    skills: ["FastAPI", "Python", "AWS", "Next.js", "React", "Typescript"],
-    companyUrl: "https://muzecmo.com",
-    logo: "/experience/muzeai-logo.png",
-  },
-  {
-    id: "builtdesign",
-    position: "Web Developer Intern",
-    company: "Builtdesign",
-    location: "Nagpur, India",
-    startDate: new Date("2021-07-01"),
-    endDate: new Date("2022-07-01"),
-    description: [
-      "Developed websites using React, Angular, and GraphQL.",
-      "Set up AWS servers and CI/CD pipelines.",
-      "Built a multi-page PDF reader for large files (>300MB).",
-    ],
-    achievements: [
-      "Developed websites using React, Angular, and GraphQL; reduced API load time by 30%.",
-      "Set up AWS servers and CI/CD pipelines, scaling traffic to 3,000+ users/day.",
-      "Built a multi-page PDF reader for large files (>300MB) to boost user engagement.",
-    ],
-    skills: [
-      "React",
-      "Angular",
-      "GraphQL",
-      "AWS",
-      "HTML 5",
-      "CSS 3",
-      "Javascript",
-    ],
-    companyUrl: "https://builtdesign.in",
-    logo: "/experience/builtdesign-logo.png",
+    skills: ["Javascript", "React", "HTML 5", "CSS 3", "Figma"],
   },
 ];

@@ -10,15 +10,13 @@ import CustomTooltip from "@/components/ui/custom-tooltip";
 import { Projects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { cn, formatDateFromObj } from "@/lib/utils";
-import profileImg from "@/public/profile-img.jpg";
+import profileImg from "@/public/oscar.jpeg";
 
 interface ProjectPageProps {
   params: Promise<{
     projectId: string;
   }>;
 }
-
-const githubUsername = "namanbarkiya";
 
 export default async function Project({ params }: ProjectPageProps) {
   const { projectId } = await params;
@@ -44,7 +42,7 @@ export default async function Project({ params }: ProjectPageProps) {
           dateTime={Date.now().toString()}
           className="block text-sm text-muted-foreground"
         >
-          {formatDateFromObj(project.startDate)}
+          {project.startDate ? formatDateFromObj(project.startDate) : "Selected work"}
         </time>
         <h1 className="flex items-center justify-between mt-2 font-heading text-4xl leading-tight lg:text-5xl">
           {project.companyName}
@@ -68,19 +66,19 @@ export default async function Project({ params }: ProjectPageProps) {
         <ChipContainer textArr={project.category} />
         <div className="mt-4 flex space-x-4">
           <Link
-            href={siteConfig.links.github}
+            href={siteConfig.links.github || "/contact"}
             className="flex items-center space-x-2 text-sm"
           >
             <Image
               src={profileImg}
-              alt={"naman"}
+              alt={"Oscar Nsamba"}
               width={42}
               height={42}
               className="rounded-full bg-background"
             />
 
             <div className="flex-1 text-left leading-tight">
-              <p className="font-medium">{"Naman Barkiya"}</p>
+              <p className="font-medium">{"Oscar Nsamba"}</p>
               <p className="text-[12px] text-muted-foreground">
                 @{siteConfig.username}
               </p>
